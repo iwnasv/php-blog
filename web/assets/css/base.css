@@ -1,0 +1,128 @@
+/* todo:
+ * comments
+ * */
+
+body {
+  font-family: "DejaVu Sans", sans-serif;
+  text-align: center;
+}
+.phone {
+  display: none;
+}
+.logo {
+  font-family: monospace;
+  font-size: 350%;
+  font-weight: bold;
+  text-shadow: 2px 1px crimson, -2px -1px blue;
+  color: #FFFD39;
+  margin: 1cm auto 0;
+}
+a {
+  text-decoration: none;
+}
+#postbody img {
+  max-width: 80%;
+  max-height: 9cm;
+  display: block;
+  margin: 5mm auto;
+}
+main {
+  min-height: 5cm;
+  margin: 1cm;
+}
+nav {
+  display: grid;
+}
+#title {
+  font-size: 140%;
+  font-weight: bold;
+  text-transform: capitalize;
+  padding: 3mm 0;
+}
+main hr {
+  margin: auto;
+  width: 90%;
+}
+#postbody {
+  margin: 1em;
+  font-family: 'GFS Didot', serif;
+}
+#postbody * {
+  margin: auto;/*nomizw kalytera me padding auto 0 sto parent*/
+}
+.smallfont {
+  font-size: 80%;
+}
+#date.edited::after {
+  content: "*";
+}
+a.windowlink:hover {
+  padding: 5pt 15pt;
+}
+#navlinks a {
+  margin: 0 5px;
+}
+#langlinks a {
+  font-weight: normal;
+}
+footer {
+  position: relative;
+  width: 100%;
+  bottom: 3mm;
+  margin-top: 1cm;
+}
+.align-left {
+  text-align: left;
+  max-width: 90%;
+}
+aside {
+  margin: auto;
+  max-width: 40%;
+}
+#inputComment {
+  display: none;
+}
+#inputComment form fieldset {
+  display: grid;
+}
+ul#comments {
+  list-style-type: none;
+}
+li.comment {
+  margin-bottom: 4px;
+  padding: 4px;
+  overflow: hidden;
+}
+li.comment img {
+  float: left;
+}
+li.comment span {
+  font-size: 80%;
+}
+input[name="postId"] {
+  display: none;
+}
+@media screen and (max-width: 14cm) {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  main {
+    margin: 1cm 0;
+    max-width: 100%;
+  }
+  aside {
+    max-width: unset;
+  }
+  #postbody img {
+    max-width: 90%;
+    max-height: 12cm;
+  }
+  .phone {
+    display: revert;
+  }
+  .desktop {
+    display: none;
+  }
+}
+

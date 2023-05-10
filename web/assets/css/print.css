@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap');
+* {margin: 0; padding: 0;}
+html {
+  visibility: collapse;
+  width: 21cm;
+}
+main {
+  visibility: visible;
+  font-family: 'GFS Didot', serif;
+  text-align: center;
+  padding: 3mm;
+  min-width: 100%;
+  border: none;
+}
+main hr {
+  border: 1px solid black;
+}
+#title {
+  font-size: 250%;
+  text-transform: capitalize;
+}
+#title::after {
+  content: " - ionas.dev";
+  text-transform: none;
+}
+#postbody::after {
+  content: "[Originally published to https://ionas.dev]";
+}
+main section {
+  margin: 5mm 0;
+}

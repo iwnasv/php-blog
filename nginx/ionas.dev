@@ -1,0 +1,49 @@
+server {
+	server_name ionas.dev;
+	listen 80;
+	listen [::]:80;
+	return 301 https://$server_name:443$request_uri;
+}
+server {
+	server_name www.ionas.dev;
+	listen 80;
+	listen [::]:80;
+	listen 443 ssl;
+	listen [::]:443 ssl;
+	return 301 https://ionas.dev:443$request_uri;
+}
+server {
+	server_name ionas.dev;
+	listen 443 ssl http2;
+	listen [::]:443 ssl http2;
+	include /etc/nginx/snippets/fastcgi-php.conf; 
+	add_header Content-Security-Policy "base-uri https://ionas.dev; default-src 'none'; img-src 'self' https://robohash.org; media-src 'self'; style-src 'self' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline'";
+	#return 503; # take it down
+	root /var/www/ionas.dev/web;
+	location ~ \.php$ {
+		fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
+		try_files $uri =404;
+	}
+	location / {
+		index index.php index.html;
+		try_files $uri $uri/ @php;
+		rewrite ^/post/(.*)$ /post.php?id=$1 last;
+		rewrite ^/catalog/(.*)$ /catalog.php?tag=$1 last;
+	}
+	location @php {
+		rewrite ^(.*)$ $1.php last;
+	}
+	location = /rss.xml {
+		types { } default_type "application/rss+xml";
+		return 301 https://ionas.dev/rss.php;
+	}
+	location /CD {
+		return 301 https://ionas.dev/cd/;
+	}
+
+}
+server {
+	server_name _;
+	listen 443 ssl default_server deferred;
+	return 444;
+}

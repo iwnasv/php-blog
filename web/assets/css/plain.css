@@ -1,0 +1,52 @@
+:root {
+  --bg: #DEDEDE; /*background*/
+  --fg: black; /*text*/
+  --a: #424BAA; /*links*/
+  --abg: ghostwhite; /*post background*/
+}
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+}
+main {
+  background-color: var(--abg);
+  border: 1px solid black;
+}
+main hr {
+  border-top: 1px solid var(--fg);
+  border-bottom: 0;
+}
+a {
+  color: var(--a);
+  font-weight: bold;
+}
+table tr:nth-child(2n) {
+  background-color: var(--bg);
+}
+table th {
+  background-color: var(--a);
+  color: var(--abg)
+}
+strong {
+  color: red;
+}
+a.windowlink {
+  font-size: 0;
+  padding: 5pt;
+  background-color: var(--a);
+  float: left;
+  border-radius: 0 3pt 3pt 0;
+  transition: padding .3s ease-out;
+}
+input[type="submit"], input[type="button"], input[type="radio"], select {
+  border-color: var(--fg);
+  background-color: var(--abg);
+  color: var(--fg);
+}
+.comment {
+  border: 1px solid var(--fg);
+  background-color: var(--abg);
+}
+.comment div span:first-child {
+  color: var(--a)
+}
